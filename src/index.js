@@ -25,21 +25,15 @@ function onInput(evt) {
 
 function numberOfCountries(arr) {
   if (arr.length === 1) {
-    singleCountry(arr);
+    addMarkup(countryInfoRef, singleCountryMarkup(arr));
   } else if (arr.length >= 2 && arr.length <= 10) {
-    severalCountries(arr);
+    addMarkup(countryListRef, severalCountriesMarkup(arr));
   } else {
     Notify.info('Too many matches found. Please enter a more specific name.');
   }
 }
-
-function singleCountry(data) {
-  countryInfoRef.innerHTML = singleCountryMarkup(data);
-  console.log(data);
-}
-
-function severalCountries(data) {
-  countryListRef.innerHTML = severalCountriesMarkup(data);
+function addMarkup(place, markup) {
+  place.innerHTML = markup;
 }
 
 function singleCountryMarkup(data) {
